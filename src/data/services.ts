@@ -1,3 +1,22 @@
+import hairdressing1 from '@/assets/hairdressing-1.jpg';
+import hairdressing2 from '@/assets/hairdressing-2.jpg';
+import hairdressing3 from '@/assets/hairdressing-3.jpg';
+import headMassage1 from '@/assets/head-massage-1.jpg';
+import headMassage2 from '@/assets/head-massage-2.jpg';
+import headMassage3 from '@/assets/head-massage-3.jpg';
+import footMassage1 from '@/assets/foot-massage-1.jpg';
+import footMassage2 from '@/assets/foot-massage-2.jpg';
+import footMassage3 from '@/assets/foot-massage-3.jpg';
+import hairExtensions1 from '@/assets/hair-extensions-1.jpg';
+import hairExtensions2 from '@/assets/hair-extensions-2.jpg';
+import hairExtensions3 from '@/assets/hair-extensions-3.jpg';
+import mensServices1 from '@/assets/mens-services-1.jpg';
+import mensServices2 from '@/assets/mens-services-2.jpg';
+import mensServices3 from '@/assets/mens-services-3.jpg';
+import balayage1 from '@/assets/balayage-1.jpg';
+import eventHair1 from '@/assets/event-hair-1.jpg';
+import hairColoring1 from '@/assets/hair-coloring-1.jpg';
+
 export interface SubService {
   id: string;
   name: string;
@@ -30,7 +49,7 @@ export const services: Service[] = [
     location: 'Főszalon - I. emelet',
     icon: 'scissors',
     category: 'women',
-    images: [],
+    images: [hairdressing1, hairdressing2, hairdressing3],
     subServices: [
       {
         id: '1-1',
@@ -38,6 +57,7 @@ export const services: Service[] = [
         description: 'Időtlen elegancia, precíz vágással és formázással.',
         price: '8 500 Ft',
         duration: '45 perc',
+        image: hairdressing3,
       },
       {
         id: '1-2',
@@ -45,6 +65,7 @@ export const services: Service[] = [
         description: 'Trendkövető frizurák, egyedi stílussal.',
         price: '12 000 Ft',
         duration: '60 perc',
+        image: hairdressing2,
       },
       {
         id: '1-3',
@@ -52,6 +73,7 @@ export const services: Service[] = [
         description: 'Teljes hajfestés prémium festékekkel, természetes hatással.',
         price: '18 000 Ft-tól',
         duration: '90-120 perc',
+        image: hairColoring1,
       },
       {
         id: '1-4',
@@ -59,6 +81,7 @@ export const services: Service[] = [
         description: 'Napcsókolta hatás, természetes színátmenetekkel.',
         price: '35 000 Ft-tól',
         duration: '180 perc',
+        image: balayage1,
       },
       {
         id: '1-5',
@@ -66,6 +89,7 @@ export const services: Service[] = [
         description: 'Esküvőre, bálra vagy különleges alkalmakra.',
         price: '15 000 Ft-tól',
         duration: '60-90 perc',
+        image: eventHair1,
       },
     ],
   },
@@ -78,7 +102,7 @@ export const services: Service[] = [
     location: 'Wellness szárny - II. emelet',
     icon: 'hand',
     category: 'wellness',
-    images: [],
+    images: [headMassage1, headMassage2, headMassage3],
     subServices: [
       {
         id: '2-1',
@@ -86,6 +110,7 @@ export const services: Service[] = [
         description: 'Feszültségoldó masszázs a fejbőr és nyak területén.',
         price: '6 500 Ft',
         duration: '30 perc',
+        image: headMassage1,
       },
       {
         id: '2-2',
@@ -93,6 +118,7 @@ export const services: Service[] = [
         description: 'Illóolajokkal kombinált masszázs a teljes ellazulásért.',
         price: '9 000 Ft',
         duration: '45 perc',
+        image: headMassage2,
       },
       {
         id: '2-3',
@@ -100,6 +126,7 @@ export const services: Service[] = [
         description: 'Ősi ayurvédikus technikákkal végzett kezelés.',
         price: '11 000 Ft',
         duration: '60 perc',
+        image: headMassage3,
       },
     ],
   },
@@ -112,7 +139,7 @@ export const services: Service[] = [
     location: 'Wellness szárny - II. emelet',
     icon: 'footprints',
     category: 'wellness',
-    images: [],
+    images: [footMassage1, footMassage2, footMassage3],
     subServices: [
       {
         id: '3-1',
@@ -120,6 +147,7 @@ export const services: Service[] = [
         description: 'Relaxáló talpmasszázs a lábak felfrissítéséért.',
         price: '7 500 Ft',
         duration: '30 perc',
+        image: footMassage1,
       },
       {
         id: '3-2',
@@ -127,6 +155,7 @@ export const services: Service[] = [
         description: 'Célzott reflexpont stimuláció az egész test harmonizálásáért.',
         price: '12 000 Ft',
         duration: '60 perc',
+        image: footMassage2,
       },
       {
         id: '3-3',
@@ -134,6 +163,7 @@ export const services: Service[] = [
         description: 'Teljes körű lábápolás relaxáló masszázzsal.',
         price: '16 000 Ft',
         duration: '75 perc',
+        image: footMassage3,
       },
     ],
   },
@@ -146,7 +176,7 @@ export const services: Service[] = [
     location: 'Főszalon - I. emelet',
     icon: 'sparkles',
     category: 'women',
-    images: [],
+    images: [hairExtensions1, hairExtensions2, hairExtensions3],
     subServices: [
       {
         id: '4-1',
@@ -154,6 +184,7 @@ export const services: Service[] = [
         description: 'Tartós, természetes hatású hajhosszabbítás keratinnal.',
         price: '120 000 Ft-tól',
         duration: '3-4 óra',
+        image: hairExtensions1,
       },
       {
         id: '4-2',
@@ -161,6 +192,7 @@ export const services: Service[] = [
         description: 'Kíméletes módszer, könnyen eltávolítható.',
         price: '95 000 Ft-tól',
         duration: '2-3 óra',
+        image: hairExtensions2,
       },
       {
         id: '4-3',
@@ -168,6 +200,7 @@ export const services: Service[] = [
         description: 'Alkalmi használatra, gyorsan felhelyezhető.',
         price: '45 000 Ft-tól',
         duration: '30 perc',
+        image: hairExtensions3,
       },
       {
         id: '4-4',
@@ -175,6 +208,7 @@ export const services: Service[] = [
         description: 'Meglévő hajhosszabbítás ápolása, igazítása.',
         price: '25 000 Ft-tól',
         duration: '60-90 perc',
+        image: hairExtensions1,
       },
     ],
   },
@@ -187,7 +221,7 @@ export const services: Service[] = [
     location: 'Barbershop - Földszint',
     icon: 'user',
     category: 'men',
-    images: [],
+    images: [mensServices1, mensServices2, mensServices3],
     subServices: [
       {
         id: '5-1',
@@ -195,6 +229,7 @@ export const services: Service[] = [
         description: 'Klasszikus vagy modern férfi frizura.',
         price: '5 500 Ft',
         duration: '30 perc',
+        image: mensServices1,
       },
       {
         id: '5-2',
@@ -202,6 +237,7 @@ export const services: Service[] = [
         description: 'Precíz szakálligazítás és formázás.',
         price: '4 000 Ft',
         duration: '20 perc',
+        image: mensServices3,
       },
       {
         id: '5-3',
@@ -209,6 +245,7 @@ export const services: Service[] = [
         description: 'Komplett férfi ápolás kedvezményes áron.',
         price: '8 500 Ft',
         duration: '45 perc',
+        image: mensServices2,
       },
       {
         id: '5-4',
@@ -216,6 +253,7 @@ export const services: Service[] = [
         description: 'Hajvágás, szakáll és arckezelés egyben.',
         price: '14 000 Ft',
         duration: '75 perc',
+        image: mensServices1,
       },
     ],
   },

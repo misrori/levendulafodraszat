@@ -1,25 +1,10 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, MapPin, Clock, Check } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Check, Phone, Instagram, Facebook } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { ImageSlider } from '@/components/ImageSlider';
-import { getServiceBySlug, services } from '@/data/services';
+import { getServiceBySlug } from '@/data/services';
 import { cn } from '@/lib/utils';
-
-// Import images
-import hairdressingImg from '@/assets/hairdressing-1.jpg';
-import headMassageImg from '@/assets/head-massage-1.jpg';
-import footMassageImg from '@/assets/foot-massage-1.jpg';
-import hairExtensionsImg from '@/assets/hair-extensions-1.jpg';
-import mensServicesImg from '@/assets/mens-services-1.jpg';
-
-const serviceImages: Record<string, string[]> = {
-  'fodraszat': [hairdressingImg],
-  'fejmasszazs': [headMassageImg],
-  'talpreflexologia': [footMassageImg],
-  'hajhosszabbitas': [hairExtensionsImg],
-  'ferfi-szolgaltatasok': [mensServicesImg],
-};
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -42,7 +27,7 @@ export default function ServiceDetail() {
     );
   }
 
-  const images = serviceImages[service.slug] || [];
+  const images = service.images;
   const isMenService = service.category === 'men';
 
   return (
@@ -105,40 +90,51 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* Sub-services */}
+      {/* Sub-services with images */}
       <section className="section-padding bg-lavender-light">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-12 text-center">
             Részletes árlista
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {service.subServices.map((subService, index) => (
               <div
                 key={subService.id}
                 className={cn(
-                  "bg-card rounded-2xl p-6 shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in-up",
+                  "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in-up",
                   isMenService && "border-l-4 border-primary"
                 )}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-display text-xl font-semibold text-foreground">
-                    {subService.name}
-                  </h3>
-                  <span className="text-primary font-bold text-lg whitespace-nowrap ml-4">
-                    {subService.price}
-                  </span>
-                </div>
-                <p className="text-muted-foreground text-sm mb-3">
-                  {subService.description}
-                </p>
-                {subService.duration && (
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="w-4 h-4" />
-                    <span>{subService.duration}</span>
+                {subService.image && (
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={subService.image} 
+                      alt={subService.name}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
                   </div>
                 )}
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-display text-xl font-semibold text-foreground">
+                      {subService.name}
+                    </h3>
+                    <span className="text-primary font-bold text-lg whitespace-nowrap ml-4">
+                      {subService.price}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    {subService.description}
+                  </p>
+                  {subService.duration && (
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Clock className="w-4 h-4" />
+                      <span>{subService.duration}</span>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -179,17 +175,39 @@ export default function ServiceDetail() {
       <section className="py-16 bg-beige">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Készen áll az időpontfoglalásra?
+            Érdekli ez a szolgáltatás?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Foglaljon időpontot telefonon vagy online, és élvezze a Levendula Szépségszalon prémium szolgáltatásait!
+            Keressen minket telefonon vagy kövessen minket a közösségi médiában a legfrissebb ajánlatainkért!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link to="/kapcsolat">Időpontfoglalás</Link>
+              <a href="tel:+36301234567" className="gap-2">
+                <Phone className="w-5 h-5" />
+                +36 30 123 4567
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="tel:+36301234567">+36 30 123 4567</a>
+              <a 
+                href="https://www.instagram.com/inplace_garden/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="gap-2"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="gap-2"
+              >
+                <Facebook className="w-5 h-5" />
+                Facebook
+              </a>
             </Button>
           </div>
         </div>

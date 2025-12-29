@@ -3,7 +3,7 @@ import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Instagram, Facebook } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Kapcsolat() {
@@ -31,7 +31,7 @@ export default function Kapcsolat() {
             Kapcsolat
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Várjuk megkeresését! Foglaljon időpontot telefonon, e-mailben vagy az alábbi űrlapon keresztül.
+            Várjuk megkeresését! Keressen minket telefonon, e-mailben vagy közösségi médiában.
           </p>
         </div>
       </section>
@@ -105,6 +105,31 @@ export default function Kapcsolat() {
                 </div>
               </div>
 
+              {/* Social Media */}
+              <div className="mt-8 p-6 bg-lavender-light rounded-2xl">
+                <h3 className="font-semibold text-foreground mb-4">Kövessen minket!</h3>
+                <div className="flex gap-4">
+                  <a
+                    href="https://www.instagram.com/inplace_garden/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-3 bg-background rounded-xl hover:bg-card transition-colors"
+                  >
+                    <Instagram className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-medium">@inplace_garden</span>
+                  </a>
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-3 bg-background rounded-xl hover:bg-card transition-colors"
+                  >
+                    <Facebook className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-medium">Facebook</span>
+                  </a>
+                </div>
+              </div>
+
               {/* Map placeholder */}
               <div className="mt-8 bg-beige rounded-2xl h-64 flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
@@ -118,7 +143,7 @@ export default function Kapcsolat() {
             {/* Contact Form */}
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">
-                Időpontfoglalás
+                Üzenet küldése
               </h2>
 
               {isSubmitted ? (

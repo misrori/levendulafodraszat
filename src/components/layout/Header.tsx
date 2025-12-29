@@ -80,7 +80,7 @@ export function Header() {
               +36 30 123 4567
             </a>
             <Button asChild>
-              <Link to="/kapcsolat">Időpontfoglalás</Link>
+              <Link to="/kapcsolat">Kapcsolat</Link>
             </Button>
           </div>
 
