@@ -1,14 +1,198 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Link } from 'react-router-dom';
+import { ArrowRight, Heart, Award, Leaf, Clock } from 'lucide-react';
+import { Layout } from '@/components/layout/Layout';
+import { Button } from '@/components/ui/button';
+import { ServiceCard } from '@/components/ServiceCard';
+import { TestimonialSlider } from '@/components/TestimonialSlider';
+import { ImageSlider } from '@/components/ImageSlider';
+import { services } from '@/data/services';
+import heroImage from '@/assets/hero-salon.jpg';
 
-const Index = () => {
+const features = [
+  {
+    icon: Heart,
+    title: 'Személyre szabott kezelések',
+    description: 'Minden vendégünk egyedi, ezért a kezeléseket is személyre szabjuk.',
+  },
+  {
+    icon: Award,
+    title: 'Tapasztalt szakemberek',
+    description: 'Csapatunk tagjai több éves szakmai tapasztalattal rendelkeznek.',
+  },
+  {
+    icon: Leaf,
+    title: 'Prémium termékek',
+    description: 'Kizárólag minőségi, természetes összetevőjű termékeket használunk.',
+  },
+  {
+    icon: Clock,
+    title: 'Rugalmas időpontok',
+    description: 'Alkalmazkodunk az Ön időbeosztásához, akár hétvégén is.',
+  },
+];
+
+export default function Index() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
-};
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Levendula Szépségszalon"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/60" />
+        </div>
 
-export default Index;
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground pt-20">
+          <div className="max-w-4xl mx-auto">
+            <span className="inline-block text-sm font-medium tracking-wider uppercase mb-6 text-lavender-light animate-fade-in">
+              Üdvözöljük a Levendula Szépségszalonban
+            </span>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
+              Ahol a szépség
+              <br />
+              <span className="text-lavender-light">nyugalommal párosul</span>
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '100ms' }}>
+              Prémium szépségszolgáltatások elegáns, nyugodt környezetben. 
+              Tapasztalt szakembereink gondoskodnak arról, hogy minden látogatás különleges élmény legyen.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '200ms' }}>
+              <Button asChild size="xl" variant="hero">
+                <Link to="/kapcsolat">
+                  Időpontfoglalás
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </Button>
+              <Button asChild size="xl" variant="heroOutline">
+                <Link to="/szolgaltatasok">Szolgáltatásaink</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+          <div className="w-8 h-12 rounded-full border-2 border-primary-foreground/30 flex items-start justify-center p-2">
+            <div className="w-1.5 h-3 bg-primary-foreground/50 rounded-full animate-pulse" />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section-padding bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">
+              Szolgáltatásaink
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-foreground">
+              Fedezze fel kínálatunkat
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              A fodrászattól a wellness kezelésekig, mindent egy helyen megtalál nálunk.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/szolgaltatasok">
+                Összes szolgáltatás
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-lavender-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">
+              Miért válasszon minket?
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-foreground">
+              Az Ön szépsége a mi szenvedélyünk
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={feature.title}
+                className="bg-card rounded-2xl p-8 text-center shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-16 h-16 rounded-2xl bg-lavender/20 flex items-center justify-center mx-auto mb-6">
+                  <feature.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold mb-3 text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding bg-beige">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">
+              Vendégeink mondták
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-foreground">
+              Vélemények és értékelések
+            </h2>
+          </div>
+
+          <TestimonialSlider />
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-lavender-dark" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+            Készen áll a kényeztetésre?
+          </h2>
+          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-10">
+            Foglaljon időpontot még ma, és élvezze a Levendula Szépségszalon prémium szolgáltatásait!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="xl" variant="heroOutline">
+              <Link to="/kapcsolat">
+                Időpontfoglalás
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+            <Button asChild size="xl" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
+              <a href="tel:+36301234567">+36 30 123 4567</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+}
