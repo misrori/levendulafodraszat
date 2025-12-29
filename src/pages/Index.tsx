@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Award, Leaf, Clock } from 'lucide-react';
+import { ArrowRight, Heart, Award, Leaf, Clock, Phone, Instagram, Facebook } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/ServiceCard';
 import { TestimonialSlider } from '@/components/TestimonialSlider';
-import { ImageSlider } from '@/components/ImageSlider';
+import { InstagramFeed } from '@/components/InstagramFeed';
 import { services } from '@/data/services';
 import heroImage from '@/assets/hero-salon.jpg';
 
@@ -63,13 +63,16 @@ export default function Index() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '200ms' }}>
               <Button asChild size="xl" variant="hero">
-                <Link to="/kapcsolat">
-                  Időpontfoglalás
+                <Link to="/szolgaltatasok">
+                  Szolgáltatásaink
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
               <Button asChild size="xl" variant="heroOutline">
-                <Link to="/szolgaltatasok">Szolgáltatásaink</Link>
+                <a href="tel:+36301234567">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Hívjon minket
+                </a>
               </Button>
             </div>
           </div>
@@ -165,6 +168,9 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Instagram Feed */}
+      <InstagramFeed />
+
       {/* CTA Section */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary to-lavender-dark" />
@@ -175,20 +181,33 @@ export default function Index() {
 
         <div className="relative z-10 container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-            Készen áll a kényeztetésre?
+            Kövessen minket a közösségi médiában!
           </h2>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-10">
-            Foglaljon időpontot még ma, és élvezze a Levendula Szépségszalon prémium szolgáltatásait!
+            Legyen naprakész legújabb munkáinkról, akcióinkról és inspiráló tartalmaikról!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="xl" variant="heroOutline">
-              <Link to="/kapcsolat">
-                Időpontfoglalás
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+              <a 
+                href="https://www.instagram.com/inplace_garden/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="gap-2"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
+              </a>
             </Button>
             <Button asChild size="xl" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
-              <a href="tel:+36301234567">+36 30 123 4567</a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="gap-2"
+              >
+                <Facebook className="w-5 h-5" />
+                Facebook
+              </a>
             </Button>
           </div>
         </div>
