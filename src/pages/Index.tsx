@@ -50,16 +50,16 @@ export default function Index() {
         <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground pt-20">
           <div className="max-w-4xl mx-auto">
             <span className="inline-block text-sm font-medium tracking-wider uppercase mb-6 text-lavender-light animate-fade-in">
-              Üdvözöljük a Levendula Szépségszalonban
+              Levendula Szépségszalon
             </span>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
-              Ahol a szépség
+              Szépség törődés
               <br />
-              <span className="text-lavender-light">nyugalommal párosul</span>
+              <span className="text-lavender-light">jó hangulatban</span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '100ms' }}>
-              Prémium szépségszolgáltatások elegáns, nyugodt környezetben. 
-              Tapasztalt szakembereink gondoskodnak arról, hogy minden látogatás különleges élmény legyen.
+              Modern stílus mindenki számára, legyen szó női, férfi, vagy gyermek hajvágásról. 
+              Jó hangulat kellemes környezetben.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '200ms' }}>
               <Button asChild size="xl" variant="hero">
@@ -97,7 +97,7 @@ export default function Index() {
               Fedezze fel kínálatunkat
             </h2>
             <p className="text-muted-foreground text-lg">
-              A fodrászattól a wellness kezelésekig, mindent egy helyen megtalál nálunk.
+              Modern stílus mindenki számára, legyen szó női, férfi, vagy gyermek hajvágásról.
             </p>
           </div>
 
@@ -105,6 +105,76 @@ export default function Index() {
             {services.map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
+          </div>
+
+          {/* Highlighted Services */}
+          <div className="mt-20 space-y-16">
+            {/* Men's Section */}
+            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card">
+              <div className="max-w-3xl mx-auto text-center">
+                <span className="text-primary font-medium text-sm tracking-wider uppercase">
+                  Férfi részére
+                </span>
+                <h3 className="font-display text-2xl md:text-3xl font-bold mt-4 mb-6 text-foreground">
+                  Unod a hajad? Ugyanaz minden nap?
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Mi lenne ha változtatnál rajta? Lehet akár dauerolt vagy melír!
+                  Az igazi változás textúra és nagy kontraszt.
+                </p>
+                <p className="text-xl font-semibold text-primary mb-4">
+                  Ez nem filter. Ez stílus! Igazi GLOW UP!
+                </p>
+                <div className="inline-flex items-center gap-3 bg-lavender-light rounded-full px-6 py-3">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span className="font-medium text-foreground">1,5 óra • 12 500 Ft</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Hair Extensions */}
+            <div className="bg-beige rounded-3xl p-8 md:p-12 shadow-card">
+              <div className="max-w-3xl mx-auto text-center">
+                <span className="text-primary font-medium text-sm tracking-wider uppercase">
+                  Hajhosszabbítás
+                </span>
+                <h3 className="font-display text-2xl md:text-3xl font-bold mt-4 mb-6 text-foreground">
+                  A haj amire mindig vágytál
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Hosszú ami önbizalmat ad, és természetes hatást nyújt. 
+                  Évek helyett órák alatt. Próbáld ki a hosszú hajat!
+                </p>
+                <p className="text-xl font-semibold text-primary mb-4">
+                  Készen állsz a változásra? Várlak a szalonban.
+                </p>
+                <div className="inline-flex items-center gap-3 bg-card rounded-full px-6 py-3">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span className="font-medium text-foreground">2-3 óra • 45 000 Ft</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Head Massage */}
+            <div className="bg-lavender-light rounded-3xl p-8 md:p-12 shadow-card">
+              <div className="max-w-3xl mx-auto text-center">
+                <span className="text-primary font-medium text-sm tracking-wider uppercase">
+                  Fejmasszázs
+                </span>
+                <h3 className="font-display text-2xl md:text-3xl font-bold mt-4 mb-6 text-foreground">
+                  Relaxáló kezelés a kikapcsolódásért
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Egy kellemes relaxáló kezelés, amely serkenti a fejbőr vérkeringését, 
+                  hozzájárul a haj egészségéhez, és segít oldani a stresszt. 
+                  Rendszeres alkalmazása frissítő hatású és támogatja a haj természetes növekedését.
+                </p>
+                <div className="inline-flex items-center gap-3 bg-card rounded-full px-6 py-3">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span className="font-medium text-foreground">25 perc • 9 500 Ft</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="text-center mt-12">
