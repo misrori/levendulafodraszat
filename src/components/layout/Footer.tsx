@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Clock, Instagram, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -10,15 +10,15 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-full bg-lavender flex items-center justify-center">
-                <span className="text-primary-foreground font-display text-lg font-bold">L</span>
+                <span className="text-primary-foreground font-display text-lg font-bold">D</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-xl font-semibold">Levendula</span>
+                <span className="font-display text-xl font-semibold">Design</span>
                 <span className="text-xs text-primary-foreground/60 -mt-1">Szépségszalon</span>
               </div>
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Prémium szépségszolgáltatások nyugodt, elegáns környezetben. Tapasztalt szakembereink gondoskodnak szépségedről.
+              Prémium szépségszolgáltatások modern, kényelmes környezetben. Specht Krisztina és csapata várja Önt Érden.
             </p>
           </div>
 
@@ -74,26 +74,21 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-lavender flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  1052 Budapest, Váci utca 15.
+                  Bajcsy-Zsilinszky út 10.<br />
+                  2030 Érd
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-lavender flex-shrink-0" />
-                <a href="tel:+36301234567" className="text-primary-foreground/70 hover:text-lavender transition-colors text-sm">
-                  +36 30 123 4567
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-lavender flex-shrink-0" />
-                <a href="mailto:info@levendula.hu" className="text-primary-foreground/70 hover:text-lavender transition-colors text-sm">
-                  info@levendula.hu
+                <a href="tel:+36203146091" className="text-primary-foreground/70 hover:text-lavender transition-colors text-sm">
+                  +36 20 314 6091
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-lavender flex-shrink-0 mt-0.5" />
                 <div className="text-primary-foreground/70 text-sm">
-                  <p>H-P: 9:00 - 19:00</p>
-                  <p>Szo: 9:00 - 14:00</p>
+                  <p>Hétfő - Péntek: 8:00 - 17:00</p>
+                  <p>Szombat - Vasárnap: Zárva</p>
                 </div>
               </li>
             </ul>
@@ -109,7 +104,7 @@ export function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100009016916537"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-lavender transition-colors"
@@ -123,7 +118,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 text-center">
           <p className="text-primary-foreground/50 text-sm">
-            © {new Date().getFullYear()} Levendula Szépségszalon. Minden jog fenntartva.
+            © {new Date().getFullYear()} Design Szépségszalon. Minden jog fenntartva.
           </p>
         </div>
       </div>

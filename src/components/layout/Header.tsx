@@ -43,11 +43,11 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-full bg-lavender flex items-center justify-center">
-              <span className="text-primary-foreground font-display text-lg font-bold">L</span>
+              <span className="text-primary-foreground font-display text-lg font-bold">D</span>
             </div>
             <div className="flex flex-col">
               <span className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                Levendula
+                Design
               </span>
               <span className="text-xs text-muted-foreground -mt-1">Szépségszalon</span>
             </div>
@@ -75,9 +75,9 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+36301234567" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="tel:+36203146091" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               <Phone className="w-4 h-4" />
-              +36 30 123 4567
+              +36 20 314 6091
             </a>
             <Button asChild>
               <Link to="/kapcsolat">Kapcsolat</Link>
@@ -116,9 +116,10 @@ export function Header() {
               </Link>
             ))}
             <div className="mt-4 px-4">
-              <Button asChild className="w-full">
-                <Link to="/kapcsolat">Időpontfoglalás</Link>
-              </Button>
+              <a href="tel:+36203146091" className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-primary-foreground rounded-lg font-medium">
+                <Phone className="w-4 h-4" />
+                Hívjon: +36 20 314 6091
+              </a>
             </div>
           </nav>
         </div>
