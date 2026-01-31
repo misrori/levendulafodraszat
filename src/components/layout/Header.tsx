@@ -35,7 +35,7 @@ export function Header() {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
           ? 'bg-background/95 backdrop-blur-md shadow-soft py-3'
-          : 'bg-transparent py-5'
+          : 'bg-foreground/40 backdrop-blur-sm py-5'
       )}
     >
       <div className="container mx-auto px-4">
@@ -46,10 +46,16 @@ export function Header() {
               <span className="text-primary-foreground font-display text-lg font-bold">D</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+              <span className={cn(
+                "font-display text-xl font-semibold group-hover:text-primary transition-colors",
+                isScrolled ? "text-foreground" : "text-white"
+              )}>
                 Design
               </span>
-              <span className="text-xs text-muted-foreground -mt-1">Szépségszalon</span>
+              <span className={cn(
+                "text-xs -mt-1",
+                isScrolled ? "text-muted-foreground" : "text-white/70"
+              )}>Szépségszalon</span>
             </div>
           </Link>
 
@@ -62,9 +68,10 @@ export function Header() {
                 className={cn(
                   'text-sm font-medium transition-colors relative py-2',
                   location.pathname === item.href
-                    ? 'text-primary'
-                    : 'text-foreground/80 hover:text-primary',
-                  'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300',
+                    ? isScrolled ? 'text-primary' : 'text-white'
+                    : isScrolled ? 'text-foreground/80 hover:text-primary' : 'text-white/90 hover:text-white',
+                  'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300',
+                  isScrolled ? 'after:bg-primary' : 'after:bg-white',
                   location.pathname === item.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'
                 )}
               >
@@ -75,7 +82,10 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+36203146091" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="tel:+36203146091" className={cn(
+              "flex items-center gap-2 text-sm transition-colors",
+              isScrolled ? "text-muted-foreground hover:text-primary" : "text-white/90 hover:text-white"
+            )}>
               <Phone className="w-4 h-4" />
               +36 20 314 6091
             </a>
@@ -87,7 +97,10 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className={cn(
+              "lg:hidden p-2 transition-colors",
+              isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"
+            )}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

@@ -26,6 +26,12 @@ export interface SubService {
   image?: string;
 }
 
+export interface HairdressingSubCategory {
+  id: string;
+  name: string;
+  subServices: SubService[];
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -35,9 +41,139 @@ export interface Service {
   location: string;
   images: string[];
   subServices: SubService[];
+  hairdressingCategories?: HairdressingSubCategory[];
   icon: string;
   category: 'women' | 'men' | 'wellness';
 }
+
+// Hairdressing sub-categories for pricing page
+export const hairdressingCategories: HairdressingSubCategory[] = [
+  {
+    id: 'hajvagas',
+    name: 'Női hajvágás',
+    subServices: [
+      {
+        id: '1-1',
+        name: 'Rövid hajvágás',
+        description: 'Rövid női hajvágás precíz formázással.',
+        price: '6 500 Ft',
+        image: hairdressing3,
+      },
+      {
+        id: '1-2',
+        name: 'Félhosszú hajvágás',
+        description: 'Félhosszú haj vágása és formázása.',
+        price: '7 000 Ft',
+        image: hairdressing2,
+      },
+      {
+        id: '1-3',
+        name: 'Hosszú hajvágás',
+        description: 'Hosszú haj vágása és formázása.',
+        price: '7 500 Ft',
+        image: hairdressing1,
+      },
+      {
+        id: '1-4',
+        name: 'Extrahosszú hajvágás',
+        description: 'Extrahosszú haj vágása és formázása.',
+        price: '8 000 Ft',
+        image: hairdressing1,
+      },
+    ],
+  },
+  {
+    id: 'hajszaritas',
+    name: 'Női hajszárítás',
+    subServices: [
+      {
+        id: '1-5',
+        name: 'Rövid hajszárítás',
+        description: 'Rövid haj professzionális szárítása és formázása.',
+        price: '5 000 Ft',
+        image: hairdressing3,
+      },
+      {
+        id: '1-6',
+        name: 'Félhosszú hajszárítás',
+        description: 'Félhosszú haj szárítása és formázása.',
+        price: '5 500 Ft',
+        image: hairdressing2,
+      },
+      {
+        id: '1-7',
+        name: 'Hosszú/Extrahosszú hajszárítás',
+        description: 'Hosszú és extrahosszú haj szárítása.',
+        price: '6 000 Ft',
+        image: hairdressing1,
+      },
+    ],
+  },
+  {
+    id: 'hajfestes',
+    name: 'Női hajfestés',
+    subServices: [
+      {
+        id: '1-8',
+        name: 'Rövid hajfestés',
+        description: 'Rövid haj festése prémium festékkel.',
+        price: '9 500 Ft',
+        image: hairColoring1,
+      },
+      {
+        id: '1-9',
+        name: 'Félhosszú hajfestés',
+        description: 'Félhosszú haj festése prémium festékkel.',
+        price: '11 500 Ft',
+        image: hairColoring1,
+      },
+      {
+        id: '1-10',
+        name: 'Hosszú hajfestés',
+        description: 'Hosszú haj festése prémium festékkel.',
+        price: '12 500 Ft',
+        image: hairColoring1,
+      },
+      {
+        id: '1-11',
+        name: 'Extrahosszú hajfestés',
+        description: 'Extrahosszú haj festése prémium festékkel.',
+        price: '16 500 Ft',
+        image: hairColoring1,
+      },
+    ],
+  },
+  {
+    id: 'hajapolas',
+    name: 'Női hajápolás',
+    subServices: [
+      {
+        id: '1-12',
+        name: 'Dauerolás rövid hajra',
+        description: 'Tartós hullámok rövid hajra.',
+        price: '8 000 Ft',
+        image: balayage1,
+      },
+      {
+        id: '1-13',
+        name: 'Dauerolás félhosszú hajra',
+        description: 'Tartós hullámok félhosszú hajra.',
+        price: '9 000 Ft',
+        image: balayage1,
+      },
+      {
+        id: '1-14',
+        name: 'Kontykészítés',
+        description: 'Alkalmi konty esküvőre, bálra vagy különleges alkalmakra.',
+        price: '9 500 Ft-tól',
+        image: eventHair1,
+      },
+    ],
+  },
+];
+
+// Flatten all hairdressing sub-services for service detail page
+const allHairdressingSubServices: SubService[] = hairdressingCategories.flatMap(cat => cat.subServices);
 
 export const services: Service[] = [
   {
@@ -50,120 +186,8 @@ export const services: Service[] = [
     icon: 'scissors',
     category: 'women',
     images: [hairdressing1, hairdressing2, hairdressing3],
-    subServices: [
-      {
-        id: '1-1',
-        name: 'Rövid hajvágás',
-        description: 'Rövid női hajvágás precíz formázással.',
-        price: '6 500 Ft',
-        duration: '30 perc',
-        image: hairdressing3,
-      },
-      {
-        id: '1-2',
-        name: 'Félhosszú hajvágás',
-        description: 'Félhosszú haj vágása és formázása.',
-        price: '7 000 Ft',
-        duration: '40 perc',
-        image: hairdressing2,
-      },
-      {
-        id: '1-3',
-        name: 'Hosszú hajvágás',
-        description: 'Hosszú haj vágása és formázása.',
-        price: '7 500 Ft',
-        duration: '45 perc',
-        image: hairdressing1,
-      },
-      {
-        id: '1-4',
-        name: 'Extrahosszú hajvágás',
-        description: 'Extrahosszú haj vágása és formázása.',
-        price: '8 000 Ft',
-        duration: '50 perc',
-        image: hairdressing1,
-      },
-      {
-        id: '1-5',
-        name: 'Rövid hajszárítás',
-        description: 'Rövid haj professzionális szárítása és formázása.',
-        price: '5 000 Ft',
-        duration: '20 perc',
-        image: hairdressing3,
-      },
-      {
-        id: '1-6',
-        name: 'Félhosszú hajszárítás',
-        description: 'Félhosszú haj szárítása és formázása.',
-        price: '5 500 Ft',
-        duration: '25 perc',
-        image: hairdressing2,
-      },
-      {
-        id: '1-7',
-        name: 'Hosszú/Extrahosszú hajszárítás',
-        description: 'Hosszú és extrahosszú haj szárítása.',
-        price: '6 000 Ft',
-        duration: '30 perc',
-        image: hairdressing1,
-      },
-      {
-        id: '1-8',
-        name: 'Rövid hajfestés',
-        description: 'Rövid haj festése prémium festékkel.',
-        price: '9 500 Ft',
-        duration: '60 perc',
-        image: hairColoring1,
-      },
-      {
-        id: '1-9',
-        name: 'Félhosszú hajfestés',
-        description: 'Félhosszú haj festése prémium festékkel.',
-        price: '11 500 Ft',
-        duration: '75 perc',
-        image: hairColoring1,
-      },
-      {
-        id: '1-10',
-        name: 'Hosszú hajfestés',
-        description: 'Hosszú haj festése prémium festékkel.',
-        price: '12 500 Ft',
-        duration: '90 perc',
-        image: hairColoring1,
-      },
-      {
-        id: '1-11',
-        name: 'Extrahosszú hajfestés',
-        description: 'Extrahosszú haj festése prémium festékkel.',
-        price: '16 500 Ft',
-        duration: '120 perc',
-        image: hairColoring1,
-      },
-      {
-        id: '1-12',
-        name: 'Dauerolás rövid hajra',
-        description: 'Tartós hullámok rövid hajra.',
-        price: '8 000 Ft',
-        duration: '90 perc',
-        image: balayage1,
-      },
-      {
-        id: '1-13',
-        name: 'Dauerolás félhosszú hajra',
-        description: 'Tartós hullámok félhosszú hajra.',
-        price: '9 000 Ft',
-        duration: '120 perc',
-        image: balayage1,
-      },
-      {
-        id: '1-14',
-        name: 'Kontykészítés',
-        description: 'Alkalmi konty esküvőre, bálra vagy különleges alkalmakra.',
-        price: '9 500 Ft-tól',
-        duration: '60-90 perc',
-        image: eventHair1,
-      },
-    ],
+    subServices: allHairdressingSubServices,
+    hairdressingCategories: hairdressingCategories,
   },
   {
     id: '2',

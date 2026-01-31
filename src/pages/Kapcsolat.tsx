@@ -1,5 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
-import { MapPin, Phone, Clock, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Clock, Facebook } from 'lucide-react';
 
 export default function Kapcsolat() {
   return (
@@ -89,16 +89,7 @@ export default function Kapcsolat() {
               <h3 className="font-display text-xl font-semibold text-foreground mb-6 text-center">
                 Kövessen minket!
               </h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://www.instagram.com/inplace_garden/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 px-6 py-4 bg-background rounded-xl hover:bg-card transition-colors"
-                >
-                  <Instagram className="w-6 h-6 text-primary" />
-                  <span className="font-medium">@inplace_garden</span>
-                </a>
+              <div className="flex justify-center">
                 <a
                   href="https://www.facebook.com/profile.php?id=100009016916537"
                   target="_blank"
