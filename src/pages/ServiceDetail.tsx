@@ -43,7 +43,7 @@ export default function ServiceDetail() {
             showDots={images.length > 1}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-foreground/20" />
-          
+
           {/* Content overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
             <div className="container mx-auto">
@@ -79,7 +79,7 @@ export default function ServiceDetail() {
       {/* Description */}
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
               A szolgáltatásról
             </h2>
@@ -91,58 +91,60 @@ export default function ServiceDetail() {
       </section>
 
       {/* Sub-services with images */}
-      <section className="section-padding bg-lavender-light">
-        <div className="container mx-auto px-4">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-12 text-center">
-            Részletes árlista
-          </h2>
+      {!service.hidePriceList && (
+        <section className="section-padding bg-lavender-light">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-12 text-center">
+              Részletes árlista
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {service.subServices.map((subService, index) => (
-              <div
-                key={subService.id}
-                className={cn(
-                  "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in-up",
-                  isMenService && "border-l-4 border-primary"
-                )}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {subService.image && (
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={subService.image} 
-                      alt={subService.name}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                )}
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-display text-xl font-semibold text-foreground">
-                      {subService.name}
-                    </h3>
-                    <span className="text-primary font-bold text-lg whitespace-nowrap ml-4">
-                      {subService.price}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-sm mb-3">
-                    {subService.description}
-                  </p>
-                  {subService.duration && (
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Clock className="w-4 h-4" />
-                      <span>{subService.duration}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {service.subServices.map((subService, index) => (
+                <div
+                  key={subService.id}
+                  className={cn(
+                    "bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in-up",
+                    isMenService && "border-l-4 border-primary"
+                  )}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {subService.image && (
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={subService.image}
+                        alt={subService.name}
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
                     </div>
                   )}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="font-display text-xl font-semibold text-foreground">
+                        {subService.name}
+                      </h3>
+                      <span className="text-primary font-bold text-lg whitespace-nowrap ml-4">
+                        {subService.price}
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      {subService.description}
+                    </p>
+                    {subService.duration && (
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Clock className="w-4 h-4" />
+                        <span>{subService.duration}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Benefits (for wellness services) */}
-      {service.category === 'wellness' && (
+      {/* Benefits (for services with benefits list) */}
+      {service.benefits && service.benefits.length > 0 && (
         <section className="section-padding bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -150,14 +152,7 @@ export default function ServiceDetail() {
                 A kezelés előnyei
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  'Csökkenti a stresszt és feszültséget',
-                  'Javítja a vérkeringést',
-                  'Elősegíti a relaxációt',
-                  'Enyhíti a fejfájást',
-                  'Támogatja a természetes gyógyulást',
-                  'Növeli az energiaszintet',
-                ].map((benefit, index) => (
+                {service.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-sage flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-accent-foreground" />
@@ -187,21 +182,11 @@ export default function ServiceDetail() {
                 +36 30 123 4567
               </a>
             </Button>
+
             <Button asChild size="lg" variant="outline">
-              <a 
-                href="https://www.instagram.com/inplace_garden/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="gap-2"
-              >
-                <Instagram className="w-5 h-5" />
-                Instagram
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
+              <a
+                href="https://facebook.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="gap-2"
               >

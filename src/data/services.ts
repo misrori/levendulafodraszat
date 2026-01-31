@@ -44,6 +44,8 @@ export interface Service {
   hairdressingCategories?: HairdressingSubCategory[];
   icon: string;
   category: 'women' | 'men' | 'wellness';
+  benefits?: string[];
+  hidePriceList?: boolean;
 }
 
 // Hairdressing sub-categories for pricing page
@@ -188,6 +190,15 @@ export const services: Service[] = [
     images: [hairdressing1, hairdressing2, hairdressing3],
     subServices: allHairdressingSubServices,
     hairdressingCategories: hairdressingCategories,
+    hidePriceList: true,
+    benefits: [
+      'Személyre szabott stílustanácsadás',
+      'Prémium minőségű hajápolók',
+      'Legújabb vágási és festési technikák',
+      'Tartós és egészséges eredmény',
+      'Kényeztető fejmasszázs hajmosáskor',
+      'Profi otthoni ápolási tanácsok'
+    ]
   },
   {
     id: '2',
@@ -209,6 +220,15 @@ export const services: Service[] = [
         image: headMassageReal,
       },
     ],
+    hidePriceList: true,
+    benefits: [
+      'Csökkenti a stresszt és feszültséget',
+      'Javítja a vérkeringést',
+      'Elősegíti a relaxációt',
+      'Enyhíti a fejfájást',
+      'Támogatja a természetes gyógyulást',
+      'Növeli az energiaszintet'
+    ]
   },
   {
     id: '3',
@@ -230,6 +250,15 @@ export const services: Service[] = [
         image: footMassage1,
       },
     ],
+    hidePriceList: true,
+    benefits: [
+      'Csökkenti a stresszt és feszültséget',
+      'Javítja a vérkeringést',
+      'Elősegíti a relaxációt',
+      'Enyhíti a fejfájást',
+      'Támogatja a természetes gyógyulást',
+      'Növeli az energiaszintet'
+    ]
   },
   {
     id: '4',
@@ -288,6 +317,15 @@ export const services: Service[] = [
         image: mensCurly,
       },
     ],
+    hidePriceList: true,
+    benefits: [
+      'Precíz hajvágás géppel vagy ollóval',
+      'Klasszikus és modern stílusok',
+      'Szakálligazítás és formázás',
+      'Gyors és profi kiszolgálás',
+      'Hajmosás és fejmasszázs',
+      'Prémium styling termékek'
+    ]
   },
 ];
 

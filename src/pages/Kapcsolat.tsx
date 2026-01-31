@@ -102,13 +102,18 @@ export default function Kapcsolat() {
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="mt-8 bg-beige rounded-2xl h-80 flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                <MapPin className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <p className="font-display text-xl font-semibold text-foreground mb-2">Térkép</p>
-                <p className="text-sm">Bajcsy-Zsilinszky út 10., 2030 Érd</p>
-              </div>
+            {/* Map */}
+            <div className="mt-8 rounded-2xl overflow-hidden shadow-card h-[400px]">
+              <iframe
+                src="https://maps.google.com/maps?q=Érd,+Bajcsy-Zsilinszky+út+10&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Design Szépségszalon Térkép"
+              />
             </div>
           </div>
         </div>

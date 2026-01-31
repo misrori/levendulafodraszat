@@ -60,15 +60,8 @@ export default function Rolunk() {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
               Történetünk
             </h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src={aboutImage} 
-                  alt="Design Szépségszalon belső tér" 
-                  className="rounded-2xl shadow-card w-full h-auto"
-                />
-              </div>
-              <div className="prose prose-lg text-muted-foreground">
+            <div className="max-w-3xl mx-auto">
+              <div className="prose prose-lg text-muted-foreground text-center">
                 <p className="text-lg leading-relaxed mb-6">
                   Szalonunk teljesen megújult, hogy még magasabb színvonalon fogadhassunk!
                 </p>
@@ -119,12 +112,12 @@ export default function Rolunk() {
             Csapatunk
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12">
-            Specht Krisztina és tapasztalt csapata várja Önt. Mindannyian elkötelezettek 
+            Specht Krisztina és tapasztalt csapata várja Önt. Mindannyian elkötelezettek
             a minőség és a vendégelégedettség iránt.
           </p>
           <div className="bg-beige rounded-2xl p-12">
             <p className="font-display text-2xl text-foreground italic">
-              "Számunkra minden vendég különleges. Célunk, hogy mindenki elégedetten, 
+              "Számunkra minden vendég különleges. Célunk, hogy mindenki elégedetten,
               felfrissülve távozzon szalonunkból."
             </p>
             <p className="text-primary font-semibold mt-4">
