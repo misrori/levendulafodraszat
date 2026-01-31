@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Clock, Instagram, Facebook } from 'lucide-react';
+import { MapPin, Phone, Clock, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -95,14 +95,6 @@ export function Footer() {
 
             {/* Social */}
             <div className="flex gap-4 mt-6">
-              <a
-                href="https://www.instagram.com/inplace_garden/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-lavender transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
               <a
                 href="https://www.facebook.com/profile.php?id=100009016916537"
                 target="_blank"

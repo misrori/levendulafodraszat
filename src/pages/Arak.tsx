@@ -1,8 +1,12 @@
 import { Layout } from '@/components/layout/Layout';
-import { services } from '@/data/services';
+import { services, hairdressingCategories } from '@/data/services';
 import { cn } from '@/lib/utils';
 
 export default function Arak() {
+  // Get services excluding hairdressing (we'll render it separately)
+  const otherServices = services.filter(s => s.slug !== 'fodraszat');
+  const hairdressingService = services.find(s => s.slug === 'fodraszat');
+
   return (
     <Layout>
       {/* Hero */}
@@ -21,11 +25,84 @@ export default function Arak() {
       <section className="section-padding bg-background">
         <div className="container mx-auto px-4">
           <div className="space-y-16">
-            {services.map((service, serviceIndex) => (
+            {/* Hairdressing Section with Sub-categories */}
+            {hairdressingService && (
+              <div className="animate-fade-in-up">
+                <div className="flex items-center gap-4 mb-8">
+                  <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+                    {hairdressingService.name}
+                  </h2>
+                </div>
+
+                <div className="space-y-8">
+                  {hairdressingCategories.map((category, catIndex) => (
+                    <div
+                      key={category.id}
+                      className="animate-fade-in-up"
+                      style={{ animationDelay: `${catIndex * 50}ms` }}
+                    >
+                      <h3 className="font-display text-lg md:text-xl font-semibold text-primary mb-4 pl-2 border-l-4 border-primary">
+                        {category.name}
+                      </h3>
+                      <div className="bg-card rounded-2xl shadow-card overflow-hidden">
+                        <div className="overflow-x-auto">
+                          <table className="w-full">
+                            <thead>
+                              <tr className="bg-lavender-light">
+                                <th className="text-left px-6 py-4 font-display font-semibold text-foreground">
+                                  Szolgáltatás
+                                </th>
+                                <th className="text-left px-6 py-4 font-display font-semibold text-foreground hidden md:table-cell">
+                                  Leírás
+                                </th>
+                                <th className="text-right px-6 py-4 font-display font-semibold text-foreground">
+                                  Ár
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {category.subServices.map((subService, index) => (
+                                <tr
+                                  key={subService.id}
+                                  className={cn(
+                                    "border-b border-border last:border-0 hover:bg-lavender-light/50 transition-colors",
+                                    index % 2 === 0 ? "bg-background" : "bg-muted/30"
+                                  )}
+                                >
+                                  <td className="px-6 py-4">
+                                    <span className="font-medium text-foreground">
+                                      {subService.name}
+                                    </span>
+                                    <p className="text-sm text-muted-foreground md:hidden mt-1">
+                                      {subService.description}
+                                    </p>
+                                  </td>
+                                  <td className="px-6 py-4 text-muted-foreground hidden md:table-cell">
+                                    {subService.description}
+                                  </td>
+                                  <td className="px-6 py-4 text-right">
+                                    <span className="font-bold text-primary text-lg">
+                                      {subService.price}
+                                    </span>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Other Services */}
+            {otherServices.map((service, serviceIndex) => (
               <div
                 key={service.id}
                 className="animate-fade-in-up"
-                style={{ animationDelay: `${serviceIndex * 100}ms` }}
+                style={{ animationDelay: `${(serviceIndex + hairdressingCategories.length) * 100}ms` }}
               >
                 <div className="flex items-center gap-4 mb-8">
                   <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">

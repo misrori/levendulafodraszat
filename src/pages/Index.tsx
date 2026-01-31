@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Award, Leaf, Clock, Phone, Instagram, Facebook } from 'lucide-react';
+import { ArrowRight, Heart, Award, Leaf, Clock, Phone, Facebook } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { ServiceCard } from '@/components/ServiceCard';
 import { TestimonialSlider } from '@/components/TestimonialSlider';
-import { InstagramFeed } from '@/components/InstagramFeed';
 import { services } from '@/data/services';
 import heroImage from '@/assets/hero-salon.jpg';
 
@@ -238,9 +237,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Instagram Feed */}
-      <InstagramFeed />
-
       {/* CTA Section */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary to-lavender-dark" />
@@ -251,24 +247,13 @@ export default function Index() {
 
         <div className="relative z-10 container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-            Kövessen minket a közösségi médiában!
+            Kövessen minket a Facebookon!
           </h2>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-10">
             Legyen naprakész legújabb munkáinkról, akcióinkról és inspiráló tartalmaikról!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button asChild size="xl" variant="heroOutline">
-              <a 
-                href="https://www.instagram.com/inplace_garden/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="gap-2"
-              >
-                <Instagram className="w-5 h-5" />
-                Instagram
-              </a>
-            </Button>
-            <Button asChild size="xl" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
               <a 
                 href="https://www.facebook.com/profile.php?id=100009016916537" 
                 target="_blank" 
