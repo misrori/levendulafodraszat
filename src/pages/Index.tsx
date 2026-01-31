@@ -27,7 +27,7 @@ const features = [
   {
     icon: Clock,
     title: 'Rugalmas időpontok',
-    description: 'Alkalmazkodunk az Ön időbeosztásához, akár hétvégén is.',
+    description: 'Hétfőtől péntekig 8:00-17:00 között várjuk.',
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Index() {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="Levendula Szépségszalon"
+            alt="Design Szépségszalon"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/60" />
@@ -50,7 +50,7 @@ export default function Index() {
         <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground pt-20">
           <div className="max-w-4xl mx-auto">
             <span className="inline-block text-sm font-medium tracking-wider uppercase mb-6 text-lavender-light animate-fade-in">
-              Levendula Szépségszalon
+              Design Szépségszalon
             </span>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
               Szépség törődés
@@ -69,7 +69,7 @@ export default function Index() {
                 </Link>
               </Button>
               <Button asChild size="xl" variant="heroOutline">
-                <a href="tel:+36301234567">
+                <a href="tel:+36203146091">
                   <Phone className="w-5 h-5 mr-2" />
                   Hívjon minket
                 </a>
@@ -127,7 +127,7 @@ export default function Index() {
                 </p>
                 <div className="inline-flex items-center gap-3 bg-lavender-light rounded-full px-6 py-3">
                   <Clock className="w-5 h-5 text-primary" />
-                  <span className="font-medium text-foreground">1,5 óra • 12 500 Ft</span>
+                  <span className="font-medium text-foreground">Férfi hajvágás géppel: 4 500 Ft • Klasszikus: 5 000 Ft</span>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function Index() {
                 </p>
                 <div className="inline-flex items-center gap-3 bg-card rounded-full px-6 py-3">
                   <Clock className="w-5 h-5 text-primary" />
-                  <span className="font-medium text-foreground">2-3 óra • 45 000 Ft</span>
+                  <span className="font-medium text-foreground">2-3 óra • 35 000 Ft</span>
                 </div>
               </div>
             </div>
@@ -270,7 +270,7 @@ export default function Index() {
             </Button>
             <Button asChild size="xl" variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/profile.php?id=100009016916537" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="gap-2"

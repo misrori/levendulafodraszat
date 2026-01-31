@@ -1,36 +1,42 @@
 import { Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import hairdressing1 from '@/assets/hairdressing-1.jpg';
+import hairdressing2 from '@/assets/hairdressing-2.jpg';
+import mensCurly from '@/assets/mens-curly.jpg';
+import mensBlonde from '@/assets/mens-blonde.jpg';
+import hairExtensionsReal from '@/assets/hair-extensions-real.jpg';
+import headMassageReal from '@/assets/head-massage-real.jpg';
 
 const instagramPosts = [
   {
     id: 1,
-    imageUrl: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=400&h=400&fit=crop',
-    alt: 'Kert design 1',
+    imageUrl: hairdressing1,
+    alt: 'Fodrászat',
   },
   {
     id: 2,
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
-    alt: 'Kert design 2',
+    imageUrl: mensCurly,
+    alt: 'Férfi hajvágás',
   },
   {
     id: 3,
-    imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=400&fit=crop',
-    alt: 'Növények 1',
+    imageUrl: hairExtensionsReal,
+    alt: 'Hajhosszabbítás',
   },
   {
     id: 4,
-    imageUrl: 'https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=400&fit=crop',
-    alt: 'Kert design 3',
+    imageUrl: hairdressing2,
+    alt: 'Női frizura',
   },
   {
     id: 5,
-    imageUrl: 'https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?w=400&h=400&fit=crop',
-    alt: 'Növények 2',
+    imageUrl: mensBlonde,
+    alt: 'Férfi stílus',
   },
   {
     id: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1463320726281-696a485928c7?w=400&h=400&fit=crop',
-    alt: 'Kert terasz',
+    imageUrl: headMassageReal,
+    alt: 'Fejmasszázs',
   },
 ];
 

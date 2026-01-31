@@ -1,6 +1,7 @@
 import { Layout } from '@/components/layout/Layout';
 import { Heart, Award, Leaf, Users } from 'lucide-react';
 import heroImage from '@/assets/hero-salon.jpg';
+import aboutImage from '@/assets/about-us-1.jpg';
 
 const values = [
   {
@@ -33,7 +34,7 @@ export default function Rolunk() {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="Levendula Szépségszalon"
+            alt="Design Szépségszalon"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 to-foreground/40" />
@@ -45,8 +46,8 @@ export default function Rolunk() {
               Rólunk
             </h1>
             <p className="text-primary-foreground/80 text-lg leading-relaxed">
-              A Levendula Szépségszalon 2010 óta szolgálja vendégeit Budapesten. 
-              Célunk, hogy minden látogatás különleges élmény legyen.
+              A Design Szépségszalon Érden várja vendégeit modern, megújult környezetben.
+              Specht Krisztina és csapata gondoskodik szépségéről.
             </p>
           </div>
         </div>
@@ -59,23 +60,25 @@ export default function Rolunk() {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
               Történetünk
             </h2>
-            <div className="prose prose-lg mx-auto text-muted-foreground">
-              <p className="text-lg leading-relaxed mb-6">
-                A Levendula Szépségszalont 2010-ben alapítottuk azzal a céllal, hogy egy olyan helyet 
-                hozzunk létre, ahol a szépség és a nyugalom találkozik. Nevünket a levendula virágról 
-                kaptuk, amely a nyugalmat, eleganciát és természetes szépséget szimbolizálja.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Az elmúlt több mint egy évtized alatt folyamatosan fejlődtünk és bővítettük 
-                szolgáltatásainkat. Ma már a fodrászattól a wellness kezelésekig mindent megtalálnak 
-                nálunk vendégeink, miközben megőriztük azt a családias, személyes légkört, ami 
-                megkülönböztet minket.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Csapatunk tagjai folyamatos képzéseken vesznek részt, hogy mindig a legújabb 
-                technikákat és trendeket kínálhassuk. Büszkék vagyunk arra, hogy vendégeink 
-                bizalmát és elégedettségét élvezhetjük.
-              </p>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src={aboutImage} 
+                  alt="Design Szépségszalon belső tér" 
+                  className="rounded-2xl shadow-card w-full h-auto"
+                />
+              </div>
+              <div className="prose prose-lg text-muted-foreground">
+                <p className="text-lg leading-relaxed mb-6">
+                  Szalonunk teljesen megújult, hogy még magasabb színvonalon fogadhassunk!
+                </p>
+                <p className="text-lg leading-relaxed mb-6">
+                  Modern, tágas és kényelmes környezetben várunk, ahol minden részlet a Te kényelmedet szolgálja.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  A megújult enteriőr, a friss stílus és a harmonikus atmoszféra mostantól még különlegesebbé teszi a nálunk töltött időt.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +119,7 @@ export default function Rolunk() {
             Csapatunk
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12">
-            Tapasztalt, lelkes szakemberek csapata várja Önt. Mindannyian elkötelezettek 
+            Specht Krisztina és tapasztalt csapata várja Önt. Mindannyian elkötelezettek 
             a minőség és a vendégelégedettség iránt.
           </p>
           <div className="bg-beige rounded-2xl p-12">
@@ -125,7 +128,7 @@ export default function Rolunk() {
               felfrissülve távozzon szalonunkból."
             </p>
             <p className="text-primary font-semibold mt-4">
-              – A Levendula Csapata
+              – Specht Krisztina, Design Szépségszalon
             </p>
           </div>
         </div>
